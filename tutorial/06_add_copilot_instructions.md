@@ -1,7 +1,7 @@
 # Introduction
 Copilot custom instructions allow you to provide context and set rules for the AI to follow, improving the relevance and consistency of its response
 
-> > [!Note]
+> [!Note]
 > Due to the non-deterministic nature of AI, Copilot may not always follow your custom instructions in exactly the same way every time they are used.
 
 In this task, we will create a default custom instruction file that Copilot will always use and additional a specific instruction for the backend service we will implement in the next task.

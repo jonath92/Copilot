@@ -24,6 +24,7 @@ To explore how AI can help us in this task, we will build a sample application w
 
 # TODO: 
 https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/coding-agent/get-the-best-results#pre-installing-dependencies-in-github-copilots-environment
+- Advanced Security
 
 
 # References
