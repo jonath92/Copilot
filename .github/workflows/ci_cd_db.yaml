@@ -12,4 +12,4 @@ jobs:
 
       - name: Docker Build
         run: |
-          docker build -t db-image:latest ./database
+          docker build -t db-image:latest ./db
