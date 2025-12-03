@@ -26,9 +26,6 @@ To explore how AI can help us in this task, we will build a sample application w
 
 # TODO: 
 
-- Advanced Security
-
-- https://github.com/copilot/spaces
 - https://github.com/spark
 
 
