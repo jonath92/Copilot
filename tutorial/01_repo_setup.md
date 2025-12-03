@@ -12,3 +12,7 @@
 
 > [!WARNING]
 > It is up to you to decide which IDE you want to use. But keep in mind that some features might not be available in all IDEs. The tutorials have been tested with Visual Studio Code only. 
+
+- It is recommended to keep the Tutorial Documents open in a Browser window while working on the tasks in the IDE. For better navigation, you can use the `Expand File Tree` view in Github
+
+![expand_file_tre](./screenshots/expand_file_tree.png)

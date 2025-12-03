@@ -20,7 +20,6 @@ To explore how AI can help us in this task, we will build a sample application w
     - Title (string)
     - Description (string)
     - Estimated Time to Complete 
-- A docker-compose to easily run the application locally
 - End2End tests to verify the functionality of the application
 
 # Training Structure
