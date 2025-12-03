@@ -18,3 +18,4 @@ In the `.github/workflows` directory, you already find a `ci_cd_db.yaml` GitHub 
 
 # Tips and Tricks
 - We have build a generic CI/CD workflow in the `ci_cd.yaml` file. We are using the [dorny/paths-filter](https://github.com/dorny/paths-filter) to trigger specific workflows based on the changed files in a Pull Request. That way, we save money and time and can easily add additional workflows in the future.
+- On your GitHub Account you have 2000 free minutes per month for GitHub Actions [see here](https://docs.github.com/en/get-started/learning-about-github/githubs-plans).
