@@ -16,7 +16,7 @@ jobs:
   path_filter: 
     runs-on: ubuntu-latest
     outputs:
-      db_setup_changed: ${{ steps.filter.outputs.db_setup_changed }}
+      db: ${{ steps.filter.outputs.db }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -32,6 +32,6 @@ jobs:
       
   ci-cd-db: 
     needs: path_filter
-    if: needs.path_filter.outputs.db_setup_changed == 'true'
+    if: needs.path_filter.outputs.db == 'true'
     uses: ./.github/workflows/ci_cd_db.yaml
     secrets: inherit
