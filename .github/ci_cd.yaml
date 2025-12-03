@@ -1,0 +1,39 @@
+name: CI/CD Pipeline
+
+on: 
+  pull_request: 
+    branches:
+      - main
+  push:
+    branches: 
+      - main
+
+jobs: 
+  path_filter: 
+    runs-on: ubuntu-latest
+    outputs:
+      db_setup_changed: ${{ steps.filter.outputs.db_setup_changed }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Path Filter
+        id: filter
+        uses: dorny/paths-filter@v2
+        with:
+          filters: |
+            db:
+              - 'db/**'
+      
+    ci-cd-db: 
+      needs: path_filter
+      if: needs.path_filter.outputs.db_setup_changed == 'true'
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+
+        - name: Set up Database
+          run: |
+            echo "Setting up the database as changes were detected in the db/ folder."
+            # Add your database setup commands here

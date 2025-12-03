@@ -1,0 +1,16 @@
+name: CI/CD Database
+
+on: 
+  workflow_call: 
+
+jobs: 
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Database
+        run: |
+          echo "Setting up the database as part of the CI/CD workflow."
+          # Add your database setup commands here

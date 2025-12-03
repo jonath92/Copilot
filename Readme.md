@@ -14,6 +14,9 @@ As Software Developers, we are often asked to give estimations on how long it wi
     - ID (unique identifier)
     - Title (string)
     - Description (string)
-    - Estimated Time to Complete (number, in hours)
+    - Estimated Time to Complete 
 - A docker-compose to easily run the application locally
 - End2End tests to verify the functionality of the application
+
+# Training Structure
+
