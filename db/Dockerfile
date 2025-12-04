@@ -1,5 +1,5 @@
 # Use the official PostgreSQL image
-FROM postgres:15
+FROM postgres:18
 
 # Set environment variables
 ENV POSTGRES_DB=taskdb
