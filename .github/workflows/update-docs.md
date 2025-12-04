@@ -123,3 +123,4 @@ Documentation‑as‑Code, transparency, single source of truth, continuous impr
 > NOTE: Never make direct pushes to the main branch. Always create a pull request for documentation changes.
 
 > NOTE: Treat documentation gaps like failing tests.
+
