@@ -1,67 +1,58 @@
 package main
 
 import (
+	"encoding/json"
 	"log"
-	"os"
-
-	"taskservice/internal/api"
-	"taskservice/internal/config"
-	"taskservice/internal/database"
-	"taskservice/pkg/logger"
-
-	"github.com/joho/godotenv"
+	"net/http"
+	"time"
 )
 
-// @title Task Management API
-// @version 1.0
-// @description A RESTful API for managing tasks with PostgreSQL backend
-// @termsOfService http://swagger.io/terms/
+// HealthResponse represents the health check response
+type HealthResponse struct {
+	Status    string `json:"status"`
+	Timestamp string `json:"timestamp"`
+	Service   string `json:"service"`
+}
 
-// @contact.name API Support
-// @contact.url http://www.taskservice.io/support
-// @contact.email support@taskservice.io
+// healthHandler handles the /health endpoint
+func healthHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
 
-// @license.name MIT
-// @license.url https://opensource.org/licenses/MIT
+	response := HealthResponse{
+		Status:    "healthy",
+		Timestamp: time.Now().UTC().Format(time.RFC3339),
+		Service:   "task-management-backend",
+	}
 
-// @host localhost:8080
-// @BasePath /api/v1
-// @schemes http https
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+
+	if err := json.NewEncoder(w).Encode(response); err != nil {
+		log.Printf("Error encoding health response: %v", err)
+		http.Error(w, "Internal server error", http.StatusInternalServerError)
+		return
+	}
+}
 
 func main() {
-	// Load environment variables
-	if err := godotenv.Load(); err != nil {
-		log.Println("No .env file found, using system environment variables")
+	mux := http.NewServeMux()
+	mux.HandleFunc("/health", healthHandler)
+
+	server := &http.Server{
+		Addr:         ":8080",
+		Handler:      mux,
+		ReadTimeout:  10 * time.Second,
+		WriteTimeout: 10 * time.Second,
+		IdleTimeout:  120 * time.Second,
 	}
 
-	// Initialize logger
-	logger := logger.New()
+	log.Println("Starting server on :8080")
+	log.Printf("Health endpoint available at: http://localhost:8080/health")
 
-	// Load configuration
-	cfg := config.Load()
-	logger.Info("Configuration loaded", "port", cfg.Port, "database", cfg.Database.Host)
-
-	// Initialize database
-	db, err := database.NewConnection(cfg.Database)
-	if err != nil {
-		logger.Error("Failed to connect to database", "error", err)
-		os.Exit(1)
-	}
-	defer db.Close()
-
-	// Run migrations
-	if err := database.RunMigrations(cfg.Database); err != nil {
-		logger.Error("Failed to run migrations", "error", err)
-		os.Exit(1)
-	}
-
-	// Initialize API server
-	server := api.NewServer(db, logger, cfg)
-
-	// Start server
-	logger.Info("Starting server", "port", cfg.Port)
-	if err := server.Run(":" + cfg.Port); err != nil {
-		logger.Error("Server failed to start", "error", err)
-		os.Exit(1)
+	if err := server.ListenAndServe(); err != nil {
+		log.Fatalf("Server failed to start: %v", err)
 	}
 }
