@@ -1,5 +1,5 @@
 -- Initialize the tasks database
-CREATE DATABASE IF NOT EXISTS taskdb;
+CREATE DATABASE taskdb;
 
 -- Use the tasks database
 \c taskdb;
