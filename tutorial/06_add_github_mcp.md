@@ -3,6 +3,20 @@
 
 There are a lot of MCP Servers out there that provide different functionalities. In this task we will add the GitHub MCP server to our development environment. This will allow us to interact with GitHub directly from GitHub Copilot Chat in our IDE. For example, we can directly create an issue in our repository without leaving our IDE in a human friendly way. 
 
+
+## Example MCP Servers
+
+| MCP Server | Type | Auth | Use Case | link |
+|------------|------|------|----------|------|
+| **MS Learn** | ☁️ Remote | 🔓 Public | Search Microsoft/Azure docs, fetch code samples | [ms learn mcp](https://github.com/MicrosoftDocs/mcp)
+| **Atlassian** | ☁️ Remote | 🔐 Auth | Query Jira issues, update tickets, search Confluence | [atlassian mcp](https://www.atlassian.com/blog/announcements/remote-mcp-server)
+| **GitHub** | ☁️ Remote | 🔐 Auth | Access repos, PRs, issues beyond current workspace | [github mcp](https://github.com/github/github-mcp-server)
+| **GitLab** | ☁️ Remote | 🔐 Auth | Manage projects, MRs, issues, pipelines, wikis | [gitlab mcp](https://docs.gitlab.com/user/gitlab_duo/model_context_protocol/mcp_server/)
+| **Playwright** | 🖥️ Local | 🔓 Public | Browser automation, web testing, scraping | [playwright mcp](https://github.com/microsoft/playwright-mcp)
+| **Figma** | ☁️ Remote | 🔐 Auth | Access Figma files, components, design data | [figma mcp](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/)
+| **Grafana** | ☁️ Remote | 🔐 Auth | Query dashboards, panels, metrics from Grafana | [grafana mcp](https://github.com/grafana/mcp-grafana)
+
+
 # Task
 The following steps will guide you through the process of adding the GitHub MCP server in VS Code. For other IDEs please refer to the [official documentation](https://github.com/github/github-mcp-server?tab=readme-ov-file#install-in-other-mcp-hosts).
 

@@ -1,10 +1,10 @@
 # Introduction
 We have a database docker container and now we want to add a backend service that interacts with the database. We do this by following the [Api first approach](https://swagger.io/resources/articles/adopting-an-api-first-approach/). 
 
-The default vscode copilot chat has the limitation that you only can have one session at a time. This makes it hard to work on multiple components of the application in parallel. In this task, we will explore how to use the Agent Sessions feature to work on multiple components in parallel.
+Copilot allows to create multiple Agent Sessions in parallel. Each session has its own context and memory. In this task we will create one Agent Session to create the openapi specification for our backend service and a second Agent Session to create the backend service itself. Finally, we will create a script that generates the interfaces and models for the backend service based on the openapi specification.
 
 # Task
-- In the Agent Sessions of Visual Studio code, click on the plus icon next to the "Local Chat Agent" 
+- In the Chat View Visual Studio code, click on the plus icon next to create a new chat
 
 - In the new windows select the Agent mode and aks GitHub Copilot to create an openapi specification in yaml format for a service that allows CRUD operations to manage tasks with the following fields: ID, Title, Description, Duration. The api.yaml should be stored in the `api-spec` folder.
 
