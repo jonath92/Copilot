@@ -8,10 +8,7 @@
 
 - Give it a name of your choice and we recommend to keep the repository public for the duration of the training. This allows us to provide you better support in case you run into issues. 
 
-- Clone the repository to your local machine. You can either do this by 
-
-
-
+- Clone the repository to your local machine. The recommended way is to use a SSH-Key. See the docs [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys). If there are problems with the SSH-Setup, you can also just download the repository as ZIP and extract it to a folder of your choice. Most tutorials will still work that way.
 
 - Open the repository  in Visual Studio Code or an IDE of your choice.
 
