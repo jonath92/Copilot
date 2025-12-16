@@ -1,5 +1,9 @@
 # Repository Setup
 
+TODO: 
+- Add info to make sure you are logged in 
+- Add info to the Invitation link to ensure ssh keys are setup
+
 - Use this [repository](https://github.com/jonath92/Copilot-Training) as template to create a new repository 
 
 ![repo template](./screenshots/repo_template.png)
