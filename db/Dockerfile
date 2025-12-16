@@ -1,9 +1,8 @@
 FROM postgres:16-alpine
 
-# Set environment variables for PostgreSQL
-ENV POSTGRES_USER=taskuser
-ENV POSTGRES_PASSWORD=taskpassword
-ENV POSTGRES_DB=taskdb
+# PostgreSQL credentials must be provided via environment variables at runtime.
+# Do not hard-code POSTGRES_USER, POSTGRES_PASSWORD, or POSTGRES_DB here.
+
 
 # Copy initialization script
 COPY init.sql /docker-entrypoint-initdb.d/
