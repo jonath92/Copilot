@@ -19,7 +19,7 @@ jobs:
       db: ${{ steps.filter.outputs.db }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
       - name: Path Filter
         id: filter
